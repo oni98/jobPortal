@@ -18,31 +18,49 @@ class UserSeeder extends Seeder
         $user = User::where('email', 'admin@admin.com')->first();
         if(is_null($user)){
             $user = new User();
-            $user->name = "Civics";
+            $user->name = "Mohammad Shahin";
             $user->email = "admin@admin.com";
+            $user->phone = "01707073407";
+            $user->phone_verified_at = "2022-08-30 12:25:22";
             $user->password = Hash::make('password');
             $user->save();
             $user->assignRole('admin');
         }
 
-        $user = User::where('email', 'agent@agent.com')->first();
+        $user = User::where('email', 'developer@developer.com')->first();
         if(is_null($user)){
             $user = new User();
-            $user->name = "Civics";
-            $user->email = "agent@agent.com";
+            $user->name = "Mehedi";
+            $user->email = "developer@developer.com";
+            $user->phone = "01768173259";
+            $user->phone_verified_at = "2022-08-30 12:25:22";
             $user->password = Hash::make('password');
             $user->save();
-            $user->assignRole('agent');
+            $user->assignRole('admin');
         }
 
-        $user = User::where('email', 'user@user.com')->first();
+        $user = User::where('email', 'employer@employer.com')->first();
         if(is_null($user)){
             $user = new User();
-            $user->name = "Civics";
-            $user->email = "user@user.com";
+            $user->name = "Mehedi-employer";
+            $user->email = "employer@employer.com";
+            $user->phone = "01521410347";
+            $user->phone_verified_at = "2022-08-30 12:25:22";
             $user->password = Hash::make('password');
             $user->save();
-            $user->assignRole('user');
+            $user->assignRole('employer');
+        }
+
+        $user = User::where('email', 'employee@employee.com')->first();
+        if(is_null($user)){
+            $user = new User();
+            $user->name = "Mehedi-employee";
+            $user->email = "employee@employee.com";
+            $user->phone = "01915951347";
+            $user->phone_verified_at = "2022-08-30 12:25:22";
+            $user->password = Hash::make('password');
+            $user->save();
+            $user->assignRole('employee');
         }
     }
 }

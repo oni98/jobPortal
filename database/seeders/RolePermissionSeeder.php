@@ -17,18 +17,23 @@ class RolePermissionSeeder extends Seeder
     {
         // Create Roles
         $roleAdmin= Role::create(['name' => 'admin']);
-        $roleAgent= Role::create(['name' => 'agent']);
-        $roleUser= Role::create(['name' => 'user']);
+        $roleemployer= Role::create(['name' => 'employer']);
+        $roleemployee= Role::create(['name' => 'employee']);
 
         // Permission List as array
         $permissions = [
             
-            // agent permission
-            'agent.create',
-            'agent.view',
-            'agent.edit',
-            'agent.delete',
-            'agent.approve',
+            // employer permission
+            'employer.create',
+            'employer.view',
+            'employer.edit',
+            'employer.delete',
+            
+            // employee permission
+            'employee.create',
+            'employee.view',
+            'employee.edit',
+            'employee.delete',
 
             // profile permission
             'profile.create',

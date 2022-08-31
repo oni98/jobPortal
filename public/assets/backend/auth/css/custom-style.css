@@ -1,0 +1,281 @@
+            a {
+                text-decoration: none !important;
+            }
+            
+            a.text-dark:hover {
+                color: #007bff!important;
+            }
+            
+            .urlbox {
+                margin: 50px auto 20px auto;
+                max-width: 758px;
+                box-shadow: 0 1px 4px #ccc;
+                border-radius: 2px;
+                padding: 20px 30px 15px;
+                background: rgb(248 249 250);
+                text-align: center;
+            }
+            
+            .input-group {
+                padding-top: 30px;
+            }
+            
+            .heading {
+                color: #007bff;
+                font-weight: bold;
+            }
+            
+            input,
+            textarea {
+                box-shadow: inset 1px 1px 3px 0px rgb(108, 115, 145);
+            }
+            
+            button {
+                transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+                box-shadow: 0px 2px 5px 0px rgb(20 25 199 / 43%);
+            }
+            
+            .custom-input {
+                height: 62px;
+                text-decoration: none;
+                border: 0.5px solid #f2f2ff;
+                box-shadow: inset 1px 1px 3px 0px rgb(108, 115, 145);
+            }
+            
+            .custom-input::placeholder {
+                font-weight: 500;
+                color: rgb(151, 181, 206);
+            }
+            
+            .custom-button {
+                font-weight: 700;
+                transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+                box-shadow: 0px 2px 5px 0px rgb(20 25 199 / 43%);
+            }
+            
+            input.copy-url,
+            textarea.copy-url,
+            input.copy-url:focus,
+            textarea.copy-url:focus {
+                height: 46px;
+                width: 50%;
+                outline: none;
+                border: 1px solid #e8e8ff;
+                border-radius: 5px 0px 0px 5px;
+                box-shadow: inset 1px 1px 3px 0px rgb(108, 115, 145);
+            }
+            
+            .copy-button,
+            .copy-button:focus {
+                color: white;
+                background: #007bff;
+                border: 1px solid #007bff;
+                outline: none;
+                border-radius: 0px 5px 5px 0px;
+                padding: 10px;
+                transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+                box-shadow: 0px 2px 5px 0px rgb(20 25 199 / 43%);
+                cursor: pointer;
+            }
+            
+            .copy-button:active {
+                background: #4796eb;
+            }
+            
+            .copy-button:before {
+                content: "Copied (কপি করা হয়েছে)";
+                position: absolute;
+                top: -15px;
+                right: 140px;
+                background: #2288f5;
+                padding: 8px 10px;
+                border-radius: 20px;
+                font-size: 15px;
+                display: none;
+            }
+            
+            .copy-button:after {
+                content: "";
+                position: absolute;
+                top: 15px;
+                right: 165px;
+                width: 10px;
+                height: 10px;
+                background: #2288f5;
+                transform: rotate(45deg);
+                display: none;
+            }
+            
+            .copy-text.active button:before,
+            .copy-text.active button:after {
+                display: block;
+            }
+            
+            .copy_short_url:before {
+                content: "Copied (কপি করা হয়েছে)";
+                background: #2288f5;
+                color: #fff;
+                padding: 8px 10px;
+                border-radius: 20px;
+                font-size: 15px;
+                display: none;
+                margin-top: -38px;
+                position: relative;
+            }
+            
+            .copy_short_url:after {
+                content: "";
+                margin-left: 150px;
+                margin-top: -30px;
+                width: 10px;
+                height: 10px;
+                background: #2288f5;
+                transform: rotate(45deg);
+                display: none;
+            }
+            
+            .copy_short_url:active:before,
+            .copy_short_url:active:after {
+                display: block;
+            }
+            
+            .register-form {
+                width: 50%;
+            }
+            
+            .button-raised {
+                transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+                box-shadow: 0px 2px 5px 0px rgb(20 25 199 / 43%);
+            }
+            
+            .home-redirect {
+                float: left;
+                font-weight: 500;
+                margin-top: -50px;
+            }
+            /* Advertise */
+            
+            .ad-1 {
+                box-shadow: 0px 0px 5px 5px rgb(97 115 220 / 26%);
+            }
+            
+            .ad-2 {
+                box-shadow: 0px 0px 5px 5px rgb(199 150 48 / 26%);
+            }
+            
+            .ad-3 {
+                box-shadow: 0px 0px 5px 5px rgb(78 77 77 / 26%);
+            }
+            
+            .ad-4 {
+                box-shadow: 0px 0px 5px 5px rgb(123 236 134 / 26%);
+            }
+            
+            .ad-5 {
+                box-shadow: 0px 0px 5px 5px rgb(78 77 77 / 26%);
+            }
+            
+            .ad-6 {
+                box-shadow: 0px 0px 5px 5px rgb(123 236 134 / 26%);
+            }
+            /* .ad-responsive {
+                display: none;
+                width: 250px;
+                height: 210px;
+                margin-left: 15px;
+                position: absolute;
+                box-shadow: 0px 0px 5px 5px rgb(78 77 77 / 26%);
+            }
+
+            .ad-responsive2 {
+                display: none;
+                width: 250px;
+                height: 210px;
+                margin-left: 15px;
+                position: absolute;
+                box-shadow: 0px 0px 5px 5px rgb(123 236 134 / 26%);
+            } */
+            
+            .delete {
+                border: red;
+                transition: box-shadow .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1);
+                box-shadow: 0px 2px 5px 0px #f3959e;
+            }
+            
+            .column {
+                float: left;
+                padding: 5px;
+            }
+            /* Clearfix (clear floats) */
+            
+            .row {
+                margin-right: 0px !important;
+            }
+            
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            
+            .center {
+                margin: auto;
+            }
+            
+            .short {
+                display: none;
+            }
+            
+            .show-ad-auth {
+                display: none;
+            }
+            
+            @media screen and (min-width: 960px) {
+                .register-form {
+                    width: 40%;
+                }
+            }
+            
+            @media screen and (max-width: 764px) {
+                .register-form {
+                    width: 80%;
+                }
+            }
+            
+            @media screen and (max-width: 500px) {
+                .ad-top {
+                    margin-top: 25px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    margin-bottom: -20px !important;
+                }
+                .short {
+                    display: block;
+                }
+                .long {
+                    display: none;
+                }
+                .ad-auth {
+                    display: none;
+                }
+                .show-ad-auth {
+                    display: block;
+                }
+            }
+            /* Scrollbar */
+            
+             ::-webkit-scrollbar {
+                width: 5px;
+            }
+            
+             ::-webkit-scrollbar-track {
+                background: #daebfa;
+            }
+            
+             ::-webkit-scrollbar-thumb {
+                background: #5fa2eb;
+            }
+            
+             ::-webkit-scrollbar-thumb:hover {
+                background: #007bff;
+            }
