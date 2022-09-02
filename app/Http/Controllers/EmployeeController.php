@@ -28,7 +28,7 @@ class EmployeeController extends Controller
         if(!empty($request->photo)){
             if(!file_exists(public_path('employee/'.$request->photo))){
                 $image_name = time().'.'.$request->photo->getClientOriginalExtension();
-                $path = $request->photo->store(public_path('employee/'));
+                $path = $request->photo->store(public_path('employee/'.$image_name));
                 $employee->photo = $image_name;
             }
         }
@@ -36,8 +36,22 @@ class EmployeeController extends Controller
             session()->flash('success', 'Your Application has been submitted');
             return redirect('/dashboard');
         }
-        
+    }
 
-        
+    public function viewDetails($id){
+        $employee = Employee::find($id);
+        return view('backend.applicant_details', with(['applicant' => $employee]));
+    }
+
+    public function destroy($id)
+    {
+        $user = Employee::find($id);
+
+        if(!is_null($user)){
+            $user->delete();
+        }
+
+        session()->flash('success', 'Employee has been Deleted');
+        return redirect('/admin/employee/list');
     }
 }

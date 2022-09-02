@@ -52,10 +52,13 @@ Route::group(['middleware' => 'auth'],  function(){
 
     // Employee
     Route::post('/employee/application', [EmployeeController::class, 'store'])->name('employee.apply');
-    Route::get('/employee/list', [EmployeeController::class, 'index'])->name('employee.list');
 
     Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'],  function(){
         Route::resource('roles', RolesController::class, ['name' => 'roles']);
         Route::resource('users', UsersController::class, ['name' => 'users']);
+
+        Route::get('/employee/list', [EmployeeController::class, 'index'])->name('employee.list');
+        Route::get('/employee/{id}/details', [EmployeeController::class, 'viewDetails'])->name('employee.view');
+        Route::get('/employee/{id}/delete', [EmployeeController::class, 'destroy'])->name('employee.destroy');
     });
 });

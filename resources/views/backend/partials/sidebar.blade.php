@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('home')}}" class="brand-link">
         <img src="{{ asset('assets/backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">{{@config('app.name')}}</span>
@@ -34,7 +34,7 @@
                 </li>
                 @role('admin')
                 <li class="nav">
-                    <a href="{{route('employee.list')}}" class="nav-link {{ Request::is('employee/list') ? 'active' : null }}">
+                    <a href="{{route('employee.list')}}" class="nav-link {{ Request::is('admin/employee/list') ? 'active' : null }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Employee Applications

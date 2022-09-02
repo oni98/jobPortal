@@ -29,12 +29,12 @@
                     <td>{{ $employee->skill }}</td>
                     <td>{{ $employee->profession }}</td>
                     <td>
-                        <a href="{{route('users.edit', $employee->id)}}" class="btn btn-primary" title="View Details"><i class="fas fa-eye"></i></a>
-                        <a class="btn btn-danger" href="{{ route('users.destroy', $employee->id) }}" class="nav-link" title="Delete Application"
+                        <a href="{{route('employee.view', $employee->id)}}" class="btn btn-primary" title="View Details"><i class="fas fa-eye"></i></a>
+                        <a class="btn btn-danger" href="{{ route('employee.destroy', $employee->id) }}" class="nav-link" title="Delete Application"
                             onclick="event.preventDefault(); document.getElementById('delete-form-{{$employee->id}}').submit();">
                             <i class="fas fa-trash"></i>
                         </a>
-                        <form id="delete-form-{{$employee->id}}" action="{{ route('users.destroy', $employee->id) }}" method="POST" style="display: none;">
+                        <form id="delete-form-{{$employee->id}}" action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display: none;">
                           @method('DELETE')
                             @csrf
                         </form>
