@@ -1,5 +1,5 @@
 @extends('backend.layout.app_auth')
-@section('title', '')
+@section('title', 'Verify OTP')
 @section('content')
     <div class="urlbox text-left register-form">
         <a class="home-redirect" href="{{ url('/') }}"><i class="fa fa-home"></i> Go Home (প্রথম পেজে যান)</a>

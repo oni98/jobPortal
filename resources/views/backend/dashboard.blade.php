@@ -55,7 +55,10 @@
     <section class="content">
         <div class="container-fluid">
 
-            @role('admin|employer|employee')
+            @role('admin')
+            @endrole
+
+            @role('employer|employee')
                 <div class="application-form">
                     <div class="card-title">
                         <h2>নিবন্ধন ফর্ম</h2>
@@ -163,7 +166,8 @@
                             <button type="submit" class="btn btn-submit btn-block">সাবমিট করুন</button>
                         </form>
                     </div>
-                @endrole
-            </div>
+            @endrole
+
+        </div>
     </section>
 @endsection

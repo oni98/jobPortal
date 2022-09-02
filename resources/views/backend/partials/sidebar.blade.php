@@ -23,14 +23,21 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               @role('admin')
+                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav">
                     <a href="{{route('dashboard')}}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : null }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+                @role('admin')
+                <li class="nav">
+                    <a href="{{route('employee.list')}}" class="nav-link {{ Request::is('employee/list') ? 'active' : null }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Employee Applications
                         </p>
                     </a>
                 </li>

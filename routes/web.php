@@ -20,14 +20,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('frontend.homepage'); })->name('home');
+Route::get('/sorry', function () { return view('frontend.sorry'); })->name('sorry');
 
 Auth::routes();
 
 // Register
-Route::get('/register', 'App\Http\Controllers\AuthController@registerPage');
+Route::get('/register', 'App\Http\Controllers\AuthController@registerPage')->name('register.view');
 Route::get('/register/employer', function(){return view('backend/auth/employer_register');});
 Route::get('/register/employee', function(){return view('backend/auth/employee_register');});
 Route::post('/auth/register', 'App\Http\Controllers\AuthController@register')->name('register');
@@ -47,13 +46,13 @@ Route::post('/reset-verification', 'App\Http\Controllers\AuthController@sendRese
 Route::get('/reset-password', 'App\Http\Controllers\AuthController@resetPassword')->name('reset-password');
 Route::post('/set-new-password', 'App\Http\Controllers\AuthController@setNewPassword')->name('set-new-password');
 
-// Route::get('/auth/logout', 'App\Http\Controllers\AuthController@logout')->name('auth.logout');
-// Route::get('/{any}', 'App\Http\Controllers\HomeController@accessUrl')->name('url_access');
-
 
 Route::group(['middleware' => 'auth'],  function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    // Employee
     Route::post('/employee/application', [EmployeeController::class, 'store'])->name('employee.apply');
+    Route::get('/employee/list', [EmployeeController::class, 'index'])->name('employee.list');
 
     Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'],  function(){
         Route::resource('roles', RolesController::class, ['name' => 'roles']);

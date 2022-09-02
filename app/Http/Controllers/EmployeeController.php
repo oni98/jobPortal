@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     public function index(){
-
+        $employees = Employee::all();
+        return view('backend.employee_list', with(['employees' => $employees]));
     }
 
     public function store(Request $request){
@@ -25,9 +26,9 @@ class EmployeeController extends Controller
         $employee->religion = $request->religion;
         $employee->nationality = $request->nationality;
         if(!empty($request->photo)){
-            if(!file_exists(public_path('profile/'.$request->photo))){
+            if(!file_exists(public_path('employee/'.$request->photo))){
                 $image_name = time().'.'.$request->photo->getClientOriginalExtension();
-                $path = $request->photo->store(public_path('profile/'));
+                $path = $request->photo->store(public_path('employee/'));
                 $employee->photo = $image_name;
             }
         }
