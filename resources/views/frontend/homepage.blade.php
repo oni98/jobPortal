@@ -57,6 +57,70 @@
         </section>
 
         <!-- intro section start  -->
+        <section class="mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="text-shadow-1 fz-50 pb-3 fz-30sm">Our Partners</h2>
+                    </div><!-- col./  -->
+                </div><!-- row./  -->
+
+                <div class="row">
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/1.jpg')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/1.jpg')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/2.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/2.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/3.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/3.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/4.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/4.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div><!-- col./  -->
+                </div><!-- row./  -->
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/5.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/5.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/6.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/6.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/7.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/7.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/8.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/8.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div><!-- col./  -->
+                </div><!-- row./  -->
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <a href="{{asset('assets/frontend/img/9.png')}}" data-toggle="lightbox" data-max-width="600">
+                            <img src="{{asset('assets/frontend/img/9.png')}}" alt="" width="256px" height="186px">
+                        </a>
+                    </div><!-- col./  -->
+                </div><!-- row./  -->
+            </div><!-- container./  -->
+        </section>
+
+
+        <!-- intro section start  -->
         <section class="">
             <div class="container">
                 <div class="row">
@@ -70,7 +134,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <img src="{{asset('assets/frontend/img/process-1.PNG')}}" alt="process" class="w-100 img-fluid">
+                        <img src="{{asset('assets/frontend/img/web-Banner.webp')}}" alt="process" class="w-100 img-fluid">
                     </div><!-- col./  -->
                 </div><!-- row./  -->
             </div><!-- container./  -->
