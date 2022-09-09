@@ -141,7 +141,7 @@ class AuthController extends Controller
             $user->otp = '';
             if ($user->save()){
                 Auth::login($user); // login user automatically
-                return redirect('backend.dashboard');
+                return redirect('dashboard');
             }
         }
         return redirect()->route('verify', ['phone'=>$phone]);

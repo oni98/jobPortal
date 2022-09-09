@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2 class="text-shadow-1 fz-50 pb-3 fz-30sm">Our Partners</h2>
+                        <h2 class="text-shadow-1 fz-50 pb-3 fz-30sm">Sponsored Ad</h2>
                     </div><!-- col./  -->
                 </div><!-- row./  -->
 

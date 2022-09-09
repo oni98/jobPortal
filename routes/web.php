@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth'],  function(){
 
         Route::get('/employee/list', [EmployeeController::class, 'index'])->name('employee.list');
         Route::get('/employee/{id}/details', [EmployeeController::class, 'viewDetails'])->name('employee.view');
-        Route::get('/employee/{id}/delete', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+        Route::get('/employee/{id}/edit', [EmployeeController::class, 'editDetails'])->name('employee.edit');
+        Route::put('/employee/{id}/update', [EmployeeController::class, 'update'])->name('employee.update');
+        Route::delete('/employee/{id}/delete', [EmployeeController::class, 'destroy'])->name('employee.destroy');
     });
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -15,23 +16,8 @@ class EmployeeController extends Controller
     public function store(Request $request){
 
         $employee = new Employee();
-        $employee->name = $request->name;
-        $employee->phone = $request->phone;
-        $employee->email = $request->email;
-        $employee->skill = $request->skill;
-        $employee->profession = $request->profession;
-        $employee->education = $request->education;
-        $employee->birth_date = $request->birth_date;
-        $employee->gender = $request->gender;
-        $employee->religion = $request->religion;
-        $employee->nationality = $request->nationality;
-        if(!empty($request->photo)){
-            if(!file_exists(public_path('employee/'.$request->photo))){
-                $image_name = time().'.'.$request->photo->getClientOriginalExtension();
-                $path = $request->photo->store(public_path('employee/'.$image_name));
-                $employee->photo = $image_name;
-            }
-        }
+        $employee = $this->patch($employee, $request);
+
         if($employee->save()){
             session()->flash('success', 'Your Application has been submitted');
             return redirect('/dashboard');
@@ -41,6 +27,22 @@ class EmployeeController extends Controller
     public function viewDetails($id){
         $employee = Employee::find($id);
         return view('backend.applicant_details', with(['applicant' => $employee]));
+    }
+
+    public function editDetails($id){
+        $employee = Employee::find($id);
+        return view('backend.applicant_edit', with(['applicant' => $employee]));
+    }
+    
+    public function update(Request $request, $id){
+
+        $employee = Employee::find($id);
+        $employee = $this->patch($employee, $request);
+
+        if($employee->save()){
+            session()->flash('success', 'The Application has been Update');
+            return redirect('/admin/employee/'.$id.'/details');
+        }
     }
 
     public function destroy($id)
@@ -53,5 +55,52 @@ class EmployeeController extends Controller
 
         session()->flash('success', 'Employee has been Deleted');
         return redirect('/admin/employee/list');
+    }
+
+     /**
+     * @param $request
+     * @param $application
+     * @return object
+     */
+    private function patch($employee, $request): object
+    {
+        do {
+            $code = random_int(100000, 999999);
+        } while (Employee::where("code", "=", $code)->first());
+
+        $employee->code = $code;
+        $employee->name = $request->name;
+        $employee->phone = $request->phone;
+        $employee->email = $request->email;
+        $employee->skill = $request->skill;
+        $employee->profession = $request->profession;
+        $employee->education = $request->education;
+        $employee->birth_date = $request->birth_date;
+        $employee->gender = $request->gender;
+        $employee->religion = $request->religion;
+        $employee->nationality = $request->nationality;
+        $employee->photo = $this->image($code, $request->photo, $employee);
+
+        return $employee;
+    }
+
+    /**
+     * @param $application->name
+     * @param $request->image
+     */
+    private function image($code, $image, $employee)
+    {
+        if(!empty($image)){
+            if(!file_exists('public/profile/'.$code.'/'.$employee->photo)){
+                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('public/profile/'.$code.'/', $image_name);
+                return $image_name;
+            }else{
+                unlink(public_path('storage/profile/'.$code.'/'. $employee->photo));
+                $image_name = time() . '.' . $image->getClientOriginalExtension();
+                $path = $image->storeAs('public/profile/'.$code.'/', $image_name);
+                return $image_name;
+            }
+        }
     }
 }

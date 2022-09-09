@@ -13,6 +13,7 @@
             <thead>
             <tr>
               <th>SL</th>
+              <th>Id</th>
               <th>Name</th>
               <th>Phone</th>
               <th>Skills</th>
@@ -24,6 +25,7 @@
                 @foreach ($employees as $employee)
                   <tr>
                     <td>{{ $loop->index+1 }}</td>
+                    <td>{{ $employee->code }}</td>
                     <td>{{ $employee->name }}</td>
                     <td>{{ $employee->phone }}</td>
                     <td>{{ $employee->skill }}</td>

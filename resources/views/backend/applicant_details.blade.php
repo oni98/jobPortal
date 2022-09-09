@@ -4,8 +4,9 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h3 class="card-title">Applicant Details</h3>
+                    <div><a href="{{route('employee.edit', $applicant->id)}}" class="btn btn-info float-right">Edit</a></div>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -54,7 +55,7 @@
                     </tr>
                     <tr>
                         <th>Photo</th>
-                        <td><img src="{{asset('storage/profile/'.$applicant->photo)}}" alt=""></td>
+                        <td><img src="{{asset('storage/profile/'.$applicant->code.'/'.$applicant->photo)}}" alt="" width="20%"></td>
                     </tr>
                 </table>
             </div>
