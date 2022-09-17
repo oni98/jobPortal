@@ -22,7 +22,7 @@
             font-weight: bold;
         }
 
-        .application-form input {
+        .application-form input, .application-form textarea {
             background-color: #fbfbfb;
             box-shadow: 1px 1px 3px 0px #626262 inset;
         }
@@ -58,7 +58,7 @@
             @role('admin')
             @endrole
 
-            @role('employer|employee')
+            @role('employee')
                 <div class="application-form">
                     <div class="card-title">
                         <h2>নিবন্ধন ফর্ম</h2>
@@ -157,6 +157,92 @@
                                                         <label for="photo">পিকচার</label>
                                                         <input type="file" name="photo" class="form-control-file" id="photo">
                                                     </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit btn-block">সাবমিট করুন</button>
+                        </form>
+                    </div>
+            @endrole
+
+            @role('employer')
+                <div class="application-form">
+                    <div class="card-title">
+                        <h2>নিবন্ধন ফর্ম</h2>
+                    </div>
+                    <div>
+                        <form action="{{route('employer.apply')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div>
+                                <div class="form-row">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item col-md-4">
+                                        <a class="nav-link active" id="home-tab1" data-toggle="tab" href="#home1" role="tab" aria-controls="home1" aria-selected="true"> প্রথম ধাপ </a>
+                                        </li>
+                                        <li class="nav-item col-md-4">
+                                        <a class="nav-link" id="profile-tab1" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile1" aria-selected="false"> দ্বিতীয় ধাপ </a>
+                                        </li>
+                                        <li class="nav-item col-md-4">
+                                        <a class="nav-link" id="contact-tab1" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact1" aria-selected="false"> তৃতীয় ধাপ </a>
+                                        </li>
+                                    </ul> 
+                                </div>
+                                <div>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab1">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="Name"> কোম্পানী নাম <span class="text-danger">*</span> </label>
+                                                    <input type="text" name="company_name" class="form-control" id="Name" required>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="phone"> মোবাইল নং <span class="text-danger">*</span> </label>
+                                                    <input type="text" name="company_phone" class="form-control" id="phone" required>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="address">কোম্পানী ঠিকানা <span class="text-danger">*</span> </label>
+                                                    <input type="text" name="company_address" class="form-control" id="address">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab1">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="entrepreneur"> আপনি কি উদ্যোক্তা? </label>
+                                                    <select id="entrepreneur" name="entrepreneur" class="form-control">
+                                                        <option disabled selected> </option>
+                                                        <option value="Yes"> হ্যাঁ </option>
+                                                        <option value="No"> না </option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="business_type"> ব্যবসার ধরন </label>
+                                                    <input type="text" name="business_type" class="form-control" id="business_type">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="business_description"> ব্যবসার বিবরন </label>
+                                                    <textarea type="text" name="business_description" class="form-control" id="business_description" rows="1"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab1">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="trade_license"> ট্রেড লাইসেন্স </label>
+                                                    <input type="file" name="trade_license" class="form-control-file" id="trade_license">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="website"> ওয়েবসাইট এড্রেস </label>
+                                                    <input type="text" name="website" class="form-control" id="website">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="email"> ইমেইল </label>
+                                                    <input type="email" name="email" class="form-control" id="email">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

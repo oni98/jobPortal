@@ -41,6 +41,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav">
+                    <a href="{{route('employer.list')}}" class="nav-link {{ Request::is('admin/employer/list') ? 'active' : null }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Employer Applications
+                        </p>
+                    </a>
+                </li>
                 @endrole
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link"

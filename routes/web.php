@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployerController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -52,15 +53,24 @@ Route::group(['middleware' => 'auth'],  function(){
 
     // Employee
     Route::post('/employee/application', [EmployeeController::class, 'store'])->name('employee.apply');
+    Route::post('/employer/application', [EmployerController::class, 'store'])->name('employer.apply');
 
     Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'],  function(){
         Route::resource('roles', RolesController::class, ['name' => 'roles']);
         Route::resource('users', UsersController::class, ['name' => 'users']);
 
+        //Employee Routes
         Route::get('/employee/list', [EmployeeController::class, 'index'])->name('employee.list');
         Route::get('/employee/{id}/details', [EmployeeController::class, 'viewDetails'])->name('employee.view');
         Route::get('/employee/{id}/edit', [EmployeeController::class, 'editDetails'])->name('employee.edit');
         Route::put('/employee/{id}/update', [EmployeeController::class, 'update'])->name('employee.update');
         Route::delete('/employee/{id}/delete', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+
+        //Employer Routes
+        Route::get('/employer/list', [EmployerController::class, 'index'])->name('employer.list');
+        Route::get('/employer/{id}/details', [EmployerController::class, 'viewDetails'])->name('employer.view');
+        Route::get('/employer/{id}/edit', [EmployerController::class, 'editDetails'])->name('employer.edit');
+        Route::put('/employer/{id}/update', [EmployerController::class, 'update'])->name('employer.update');
+        Route::delete('/employer/{id}/delete', [EmployerController::class, 'destroy'])->name('employer.destroy');
     });
 });

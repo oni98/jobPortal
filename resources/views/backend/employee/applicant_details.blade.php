@@ -55,7 +55,7 @@
                     </tr>
                     <tr>
                         <th>Photo</th>
-                        <td><img src="{{asset('storage/profile/'.$applicant->code.'/'.$applicant->photo)}}" alt="" width="20%"></td>
+                        <td><img src="{{asset('storage/employee/'.$applicant->code.'/'.$applicant->photo)}}" alt="" width="20%"></td>
                     </tr>
                 </table>
             </div>

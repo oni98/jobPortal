@@ -10,7 +10,7 @@ class EmployeeController extends Controller
 {
     public function index(){
         $employees = Employee::all();
-        return view('backend.employee_list', with(['employees' => $employees]));
+        return view('backend.employee.employee_list', with(['employees' => $employees]));
     }
 
     public function store(Request $request){
@@ -26,12 +26,12 @@ class EmployeeController extends Controller
 
     public function viewDetails($id){
         $employee = Employee::find($id);
-        return view('backend.applicant_details', with(['applicant' => $employee]));
+        return view('backend.employee.applicant_details', with(['applicant' => $employee]));
     }
 
     public function editDetails($id){
         $employee = Employee::find($id);
-        return view('backend.applicant_edit', with(['applicant' => $employee]));
+        return view('backend.employee.applicant_edit', with(['applicant' => $employee]));
     }
     
     public function update(Request $request, $id){
@@ -40,7 +40,7 @@ class EmployeeController extends Controller
         $employee = $this->patch($employee, $request);
 
         if($employee->save()){
-            session()->flash('success', 'The Application has been Update');
+            session()->flash('success', 'The Application has been Updated');
             return redirect('/admin/employee/'.$id.'/details');
         }
     }
@@ -91,14 +91,14 @@ class EmployeeController extends Controller
     private function image($code, $image, $employee)
     {
         if(!empty($image)){
-            if(!file_exists('public/profile/'.$code.'/'.$employee->photo)){
+            if(!file_exists('public/employee/'.$code.'/'.$employee->photo)){
                 $image_name = time() . '.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('public/profile/'.$code.'/', $image_name);
+                $path = $image->storeAs('public/employee/'.$code.'/', $image_name);
                 return $image_name;
             }else{
-                unlink(public_path('storage/profile/'.$code.'/'. $employee->photo));
+                unlink(public_path('storage/employee/'.$code.'/'. $employee->photo));
                 $image_name = time() . '.' . $image->getClientOriginalExtension();
-                $path = $image->storeAs('public/profile/'.$code.'/', $image_name);
+                $path = $image->storeAs('public/employee/'.$code.'/', $image_name);
                 return $image_name;
             }
         }
