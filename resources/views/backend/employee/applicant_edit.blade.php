@@ -11,7 +11,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 @include('backend.partials.message')
-                <form action="{{ route('employee.update', $applicant->id) }}" method="POST">
+                <form action="{{ route('employee.update', $applicant->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <table id="example1" class="table table-bordered table-striped">
@@ -99,7 +99,7 @@
                             <th>Photo</th>
                             <td>
                                 <input type="file" name="photo" class="form-control-file">
-                                <img src="{{ asset('storage/profile/' . $applicant->code . '/' . $applicant->photo) }}"
+                                <img src="{{ asset('storage/employee/' . $applicant->code . '/' . $applicant->photo) }}"
                                     alt="" width="20%">
                             </td>
                         </tr>

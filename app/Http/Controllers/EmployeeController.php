@@ -16,7 +16,12 @@ class EmployeeController extends Controller
     public function store(Request $request){
 
         $employee = new Employee();
-        $employee = $this->patch($employee, $request);
+        do {
+            $code = random_int(100000, 999999);
+        } while (Employee::where("code", "=", $code)->first());
+
+        $employee->code = $code;
+        $employee = $this->patch($employee, $request, $code);
 
         if($employee->save()){
             session()->flash('success', 'Your Application has been submitted');
@@ -37,7 +42,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id){
 
         $employee = Employee::find($id);
-        $employee = $this->patch($employee, $request);
+        $employee = $this->patch($employee, $request, $employee->code);
 
         if($employee->save()){
             session()->flash('success', 'The Application has been Updated');
@@ -62,13 +67,8 @@ class EmployeeController extends Controller
      * @param $application
      * @return object
      */
-    private function patch($employee, $request): object
+    private function patch($employee, $request, $code): object
     {
-        do {
-            $code = random_int(100000, 999999);
-        } while (Employee::where("code", "=", $code)->first());
-
-        $employee->code = $code;
         $employee->name = $request->name;
         $employee->phone = $request->phone;
         $employee->email = $request->email;

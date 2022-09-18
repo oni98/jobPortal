@@ -11,97 +11,52 @@
             <!-- /.card-header -->
             <div class="card-body">
                 @include('backend.partials.message')
-                <form action="{{ route('employee.update', $applicant->id) }}" method="POST">
+                <form action="{{ route('employer.update', $applicant->id) }} " method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <table id="example1" class="table table-bordered table-striped">
                         <tr>
-                            <th>Name</th>
-                            <td><input name="name" value="{{ $applicant->name }}" class="form-control" /></td>
+                            <th>Company Name</th>
+                            <td><input class="form-control" type="text" name="company_name" value="{{ $applicant->company_name }} "></td>
                         </tr>
                         <tr>
-                            <th>Phone</th>
-                            <td><input name="phone" value="{{ $applicant->phone }}" class="form-control" /></td>
+                            <th>Company Phone</th>
+                            <td><input class="form-control" type="text" name="company_phone" value="{{ $applicant->company_phone }} "></td>
+                        </tr>
+                        <tr>
+                            <th>Company Address</th>
+                            <td><input class="form-control" type="text" name="company_address" value="{{ $applicant->company_address }} "></td>
+                        </tr>
+                        <tr>
+                            <th>Enterpreneur</th>
+                            <td><select id="entrepreneur" name="entrepreneur" class="form-control">
+                                <option value="Yes" {{($applicant->enterpreneur == 'Yes')? 'selected' : ''}}> Yes </option>
+                                <option value="No" {{($applicant->enterpreneur == 'No')? 'selected' : ''}}> No </option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>Business Type</th>
+                            <td><input class="form-control" type="text" name="business_type" value="{{ $applicant->business_type }} "></td>
+                        </tr>
+                        <tr>
+                            <th>Business Description</th>
+                            <td><input class="form-control" type="text" name="business_description" value="{{ $applicant->business_description }} "></td>
+                        </tr>
+                        <tr>
+                            <th>Website</th>
+                            <td><input class="form-control" type="text" name="website" value="{{ $applicant->website }} "></td>
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td><input name="email" value="{{ $applicant->email }}" class="form-control" /></td>
+                            <td><input class="form-control" type="text" name="email" value="{{ $applicant->email }} "></td>
                         </tr>
                         <tr>
-                            <th>Skills</th>
-                            <td><input name="skill" value="{{ $applicant->skill }}" class="form-control" /></td>
-                        </tr>
-                        <tr>
-                            <th>Profession</th>
-                            <td><input name="profession" value="{{ $applicant->profession }}" class="form-control" /></td>
-                        </tr>
-                        <tr>
-                            <th>Education Qualification</th>
+                            <th>Trade License</th>
                             <td>
-                                <select id="education" name="education" class="form-control">
-                                    <option value="Masters or equivalent or more"
-                                        {{ $applicant->education == 'Masters or equivalent or more' ? 'selected' : '' }}>
-                                        Masters or equivalent or more</option>
-                                    <option value="Honors or equivalent"
-                                        {{ $applicant->education == 'Honors or equivalent' ? 'selected' : '' }}> Honors or
-                                        equivalent</option>
-                                    <option value="HSC or equivalent"
-                                        {{ $applicant->education == 'HSC or equivalent' ? 'selected' : '' }}> HSC or
-                                        equivalent</option>
-                                    <option value="SSC or equivalent"
-                                        {{ $applicant->education == 'SSC or equivalent' ? 'selected' : '' }}>SSC or
-                                        equivalent </option>
-                                    <option value="under SSC"
-                                        {{ $applicant->education == 'under SSC' ? 'selected' : '' }}> under SSC </option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Date of Birth</th>
-                            <td><input name="birth_date" value="{{ $applicant->birth_date }}" class="form-control" /></td>
-                        </tr>
-                        <tr>
-                            <th>Gender</th>
-                            <td>
-                                <select id="gender" name="gender" class="form-control">
-                                    <option value="Male" {{ $applicant->gender == 'Male' ? 'selected' : '' }}> Male
-                                    </option>
-                                    <option value="Female" {{ $applicant->gender == 'Female' ? 'selected' : '' }}> Female
-                                    </option>
-                                    <option value="Other" {{ $applicant->gender == 'Other' ? 'selected' : '' }}> Other
-                                    </option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Religion</th>
-                            <td>
-                                <select id="religion" name="religion" class="form-control">
-                                    <option value="Islam" {{ $applicant->religion == 'Islam' ? 'selected' : '' }}> Islam
-                                    </option>
-                                    <option value="Hindu" {{ $applicant->religion == 'Hindu' ? 'selected' : '' }}> Hindu
-                                    </option>
-                                    <option value="Cristian" {{ $applicant->religion == 'Cristian' ? 'selected' : '' }}>
-                                        Cristian </option>
-                                    <option value="Buddhism" {{ $applicant->religion == 'Buddhism' ? 'selected' : '' }}>
-                                        Buddhism </option>
-                                    <option value="Other" {{ $applicant->religion == 'Other' ? 'selected' : '' }}> Other
-                                    </option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Nationality</th>
-                            <td><input name="nationality" value="{{ $applicant->nationality }}" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Photo</th>
-                            <td>
-                                <input type="file" name="photo" class="form-control-file">
-                                <img src="{{ asset('storage/profile/' . $applicant->code . '/' . $applicant->photo) }}"
-                                    alt="" width="20%">
-                            </td>
+                                <a href="{{asset('storage/employer/'.$applicant->code.'/'.$applicant->trade_license)}}" download> Click to download Trade License
+                            </a>
+                            <input type="file" name="trade_license" class="form-control-file" id="trade_license">
+                        </td>
                         </tr>
                         <tr><td colspan="2"><button class="btn btn-info btn-block">Update</button></td></tr>
                     </table>
